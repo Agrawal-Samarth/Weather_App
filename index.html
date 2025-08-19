@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - ICT Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cloud-sun"></i> Weather App</h1>
+        </header>
+        
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="Enter city name (e.g., London, Tokyo, New York)...">
+                <button onclick="getWeather()" id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+            <div class="quick-cities">
+                <span>Quick search:</span>
+                <button onclick="searchCity('London')">London</button>
+                <button onclick="searchCity('Tokyo')">Tokyo</button>
+                <button onclick="searchCity('New York')">New York</button>
+                <button onclick="searchCity('Mumbai')">Mumbai</button>
+            </div>
+        </div>
+
+        <div class="current-location" id="currentLocation" style="display: none;">
+            <h3><i class="fas fa-map-marker-alt"></i> Current Location</h3>
+            <div id="currentLocationInfo"></div>
+        </div>
+
+        <div id="weatherInfo" class="weather-info">
+            <div class="weather-card">
+                <h3><i class="fas fa-history"></i> Yesterday</h3>
+                <div id="yesterday" class="day-info">
+                    <div class="placeholder">
+                        <i class="fas fa-cloud"></i>
+                        <p>Enter a city to see weather</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather-card featured">
+                <h3><i class="fas fa-sun"></i> Today</h3>
+                <div id="today" class="day-info">
+                    <div class="placeholder">
+                        <i class="fas fa-cloud"></i>
+                        <p>Enter a city to see weather</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather-card">
+                <h3><i class="fas fa-calendar-day"></i> Tomorrow</h3>
+                <div id="tomorrow" class="day-info">
+                    <div class="placeholder">
+                        <i class="fas fa-cloud"></i>
+                        <p>Enter a city to see weather</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="additional-info" id="additionalInfo" style="display: none;">
+            <h3><i class="fas fa-info-circle"></i> Additional Information</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-eye"></i>
+                    <span>Visibility: <span id="visibility">-</span></span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Pressure: <span id="pressure">-</span></span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-thermometer-half"></i>
+                    <span>Feels like: <span id="feelsLike">-</span></span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Last updated: <span id="lastUpdated">-</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="error" class="error" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>City not found! Please check the spelling and try again.</p>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <footer>
+            <p>Powered by WeatherAPI.com</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
